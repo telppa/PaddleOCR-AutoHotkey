@@ -1,6 +1,6 @@
 ﻿/*
 author:    telppa（空）
-version:   2021.09.05
+version:   2021.09.21
 */
 PaddleOCR(Image, Configs:="")
 {
@@ -109,7 +109,7 @@ PaddleOCR(Image, Configs:="")
     if (NeedToInit)
     {
         DllCall("PaddleOCR\destroy")
-        DllCall("PaddleOCR\init", "astr", DllPath "\config.txt", "cdecl int")
+        DllCall("PaddleOCR\load_config_file", "astr", DllPath "\config.txt", "cdecl int")
         FileDelete, %DllPath%\config.txt
     }
     
