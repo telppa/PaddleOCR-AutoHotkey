@@ -14,11 +14,11 @@ PaddleOCR(Image, Configs:="")
     }
     
     ; 校验路径中是否包含空白符（例如空格）
-    ; if (RegExMatch(A_LineFile, "\s"))
-    ; {
-        ; MsgBox, 0x40010, , Please do not include whitespace in the path.
-        ; ExitApp
-    ; }
+    if (RegExMatch(A_LineFile, "\s"))
+    {
+        MsgBox, 0x40010, , Please do not include whitespace in the path.
+        ExitApp
+    }
     
     ; 首次运行或 Configs 传入值则生成配置文件
     if (!hModule or IsObject(Configs))
