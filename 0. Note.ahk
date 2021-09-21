@@ -38,6 +38,7 @@ How to switch language:
   Download and rename and overwrite the original file which in "PaddleOCR\Dll\inference".
   
     Multilingual OCR model.
+    Overwrite "PaddleOCR\Dll\inference\ch_ppocr_mobile_v2.0_rec_infer"
     Overwrite "PaddleOCR\Dll\inference\ch_ppocr_server_v2.0_rec_infer"
       https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.2/doc/doc_en/models_list_en.md
     
