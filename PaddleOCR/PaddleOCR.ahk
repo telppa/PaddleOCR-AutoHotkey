@@ -1,6 +1,6 @@
 ﻿/*
 author:    telppa（空）
-version:   2021.09.21
+version:   2021.10.03
 */
 PaddleOCR(Image, Configs:="")
 {
@@ -49,10 +49,10 @@ PaddleOCR(Image, Configs:="")
         
         ; 使用更快或更准的模型
         model          := (model="fast" or model="mobile") ? "mobile" : "server"
-        det_model_dir  := DllPath "\inference\ch_ppocr_" model "_v2.0_det_infer\"
-        cls_model_dir  := DllPath "\inference\ch_ppocr_mobile_v2.0_cls_infer\"
-        rec_model_dir  := DllPath "\inference\ch_ppocr_" model "_v2.0_rec_infer\"
-        char_list_file := DllPath "\inference\ppocr_keys_v1.txt"
+        cls_model_dir  := DllPath "\inference\mobile_cls\"
+        det_model_dir  := DllPath "\inference\" model "_det\"
+        rec_model_dir  := DllPath "\inference\" model "_rec\"
+        char_list_file := DllPath "\inference\dict.txt"
         
         ; config.txt 模板
         template=
@@ -84,8 +84,6 @@ PaddleOCR(Image, Configs:="")
         )
         if (template!=LastConfigs)
         {
-            FileDelete, %DllPath%\config.txt
-            FileAppend, %template%, %DllPath%\config.txt
             LastConfigs := template
             NeedToInit  := 1
         }
@@ -105,12 +103,14 @@ PaddleOCR(Image, Configs:="")
         DllCall("SetDllDirectory", "str", DllPath)
         hModule := DllCall("LoadLibrary", "str", DllPath "\PaddleOCR.dll")
     }
+    
     ; 设置变更需要重新初始化
     if (NeedToInit)
     {
         DllCall("PaddleOCR\destroy")
-        DllCall("PaddleOCR\load_config_file", "astr", DllPath "\config.txt", "cdecl int")
-        FileDelete, %DllPath%\config.txt
+        VarSetCapacity(config, StrPut(template, "cp0"))
+        StrPut(template, &config, "cp0")
+        DllCall("PaddleOCR\load_config", "str", config)
     }
     
     ; 加载图片到内存
@@ -120,10 +120,7 @@ PaddleOCR(Image, Configs:="")
     pSize   := DllCall("GlobalSize", "ptr", hMemory, "uptr")
     
     ; 是否返回包括识别到的内容、置信度和坐标在内的全部信息（ JSON 格式）
-    if (get_all_info)
-        str := DllCall("PaddleOCR\ocr_from_binary", "ptr", pMemory, "int", pSize, "int", 1, "str")
-    else
-        str := DllCall("PaddleOCR\ocr_from_binary", "ptr", pMemory, "int", pSize, "str")
+    str := DllCall("PaddleOCR\ocr_from_binary", "ptr", pMemory, "int", pSize, "int", get_all_info, "str")
     
     ; 释放内存资源
     DllCall("GlobalUnlock", "ptr", hMemory)
@@ -135,30 +132,3 @@ PaddleOCR(Image, Configs:="")
 
 #Include %A_LineFile%\..\Lib\ImagePut.ahk
 #Include %A_LineFile%\..\Lib\NonNull.ahk
-
-/* PaddleOCR.dll 说明 by 天黑请闭眼
-PaddleOCR导出函数
-```cpp
-// 释放加载的模型
-void destroy();
-
-// 读取配置字符串，根据配置文件加载模型，配置文件ansi编码
-int load_config(const char* config);
-
-// 读取配置文件，根据配置文件加载模型，配置文件ansi编码
-int load_config_file(const char* path);
-
-// ocr本地文件，allinfo 为 TRUE 时，返回JSON格式，包含识别结果、置信度、位置信息
-const wchar_t* ocr_from_file(const char* path, BOOL allinfo = FALSE);
-
-// ocr图片的二进制
-const wchar_t* ocr_from_binary(const char* data, UINT size, BOOL allinfo = FALSE);
-```
-
-**注意**
-- 需要以下dll文件: 
-    [paddle预测库](https://paddle-inference.readthedocs.io/en/latest/user_guides/download_lib.html)(libiomp5md, mklml, mkldnn, paddle_inference)
-    [opencv](https://sourceforge.net/projects/opencvlibrary/files/4.5.2/opencv-4.5.2-vc14_vc15.exe/download)(opencv_world452)
-- 需要识别模型:
-    [OCR模型列表](https://gitee.com/paddlepaddle/PaddleOCR/blob/release/2.1/doc/doc_ch/models_list.md)
-*/

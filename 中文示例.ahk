@@ -5,30 +5,32 @@
 用法：
   PaddleOCR(Image, Configs)
   
-  Image 可以是几乎任意形式的图片。
-  具体可见：https://github.com/iseahound/ImagePut
+  Image
+    可以是几乎任意形式的图片。
+    具体可见：https://github.com/iseahound/ImagePut
   
-  Configs 以下是支持的设置及其默认值。
-  部分会影响识别结果，全部可以省略，具体含义看示例或翻代码。
-  {
-    "model":                        "server"
-    "get_all_info":                 0
-    "use_gpu":                      0
-    "gpu_id":                       0
-    "gpu_mem":                      4000
-    "cpu_math_library_num_threads": 10
-    "use_mkldnn":                   0
-    "max_side_len":                 960
-    "det_db_thresh":                0.5
-    "det_db_box_thresh":            0.5
-    "det_db_unclip_ratio":          2.2
-    "use_polygon_score":            1
-    "use_angle_cls":                0
-    "cls_thresh":                   0.9
-    "visualize":                    0
-    "use_tensorrt":                 0
-    "use_fp16":                     0
-  }
+  Configs
+    以下是支持的设置及其默认值。
+    部分会影响识别结果，全部可以省略，具体含义看示例或翻代码。
+    {
+      "model":                        "server"
+      "get_all_info":                 0
+      "use_gpu":                      0
+      "gpu_id":                       0
+      "gpu_mem":                      4000
+      "cpu_math_library_num_threads": 10
+      "use_mkldnn":                   0
+      "max_side_len":                 960
+      "det_db_thresh":                0.5
+      "det_db_box_thresh":            0.5
+      "det_db_unclip_ratio":          2.2
+      "use_polygon_score":            1
+      "use_angle_cls":                0
+      "cls_thresh":                   0.9
+      "visualize":                    0
+      "use_tensorrt":                 0
+      "use_fp16":                     0
+    }
   
 感谢：
   PaddleOCR
