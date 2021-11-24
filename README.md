@@ -15,6 +15,11 @@ PaddleOCR AHK 版。
 ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg)  
   
 # Changelog  
+#### 2021.11.24  
+* When set "get_all_info" to 1, the return value is an object.  
+* Fix a bug when set "get_all_info" to 1.  
+* Update example 6 and 7.  
+* Update ImagePut.ahk to 1.3.  
 #### 2021.10.03  
 * Update PaddleOCR.dll to 2.3.  
 * Update detection model to ch_PP-OCRv2_det.  
