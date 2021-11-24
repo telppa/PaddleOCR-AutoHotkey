@@ -1,6 +1,6 @@
 ﻿/*
 author:    telppa（空）
-version:   2021.10.03
+version:   2021.11.24
 */
 PaddleOCR(Image, Configs:="")
 {
@@ -127,8 +127,18 @@ PaddleOCR(Image, Configs:="")
     DllCall("GlobalFree", "ptr", hMemory)
     ObjRelease(pStream)
     
+    ; 修复错误的 score 导致 JSON 无法被解析的问题
+    if (get_all_info)
+    {
+        wrongChars = ,"score":-nan(ind),"range"
+        rightChars = ,"score":-1,"range"
+        str := StrReplace(str, wrongChars, rightChars)
+        return, JSON.Load(str)
+    }
+    
     return, str
 }
 
 #Include %A_LineFile%\..\Lib\ImagePut.ahk
 #Include %A_LineFile%\..\Lib\NonNull.ahk
+#Include %A_LineFile%\..\Lib\JSON.ahk
