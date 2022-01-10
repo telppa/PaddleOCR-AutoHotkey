@@ -14,6 +14,7 @@ PaddleOCR AHK 版。
 # Changelog  
 #### 2022.01.10  
 * Support OCR PDF file directly.  
+* Fix a bug when set "get_all_info" to 1.  
 * Add 4 examples.  
 * Update all examples.  
 * Update ImagePut.ahk to 1.5.1.  
@@ -23,6 +24,7 @@ PaddleOCR AHK 版。
 * Fix a bug when set "get_all_info" to 1.  
 * Update example 6 and 7.  
 * Update ImagePut.ahk to 1.3.  
+* Update JSON.ahk to cJSON.ahk.  
   
 #### 2021.10.03  
 * Update PaddleOCR.dll to 2.3.  
