@@ -133,7 +133,7 @@ PaddleOCR(Image, Configs:="")
         wrongChars = ,"score":-nan(ind),"range"
         rightChars = ,"score":-1,"range"
         str := StrReplace(str, wrongChars, rightChars)
-        return, JSON.Load(str)
+        return, str="" ? "" : JSON.Load(str)
     }
     
     return, str
