@@ -1,6 +1,6 @@
 ﻿/*
 author:    telppa（空）
-version:   2021.11.24
+version:   2022.01.10
 */
 PaddleOCR(Image, Configs:="")
 {
@@ -133,6 +133,7 @@ PaddleOCR(Image, Configs:="")
         wrongChars = ,"score":-nan(ind),"range"
         rightChars = ,"score":-1,"range"
         str := StrReplace(str, wrongChars, rightChars)
+        ; 修复 str 为空报错的问题
         return, str="" ? "" : JSON.Load(str)
     }
     
