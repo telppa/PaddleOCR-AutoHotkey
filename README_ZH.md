@@ -5,7 +5,7 @@ PaddleOCR AutoHotkey 版。
 本项目是 AutoHotkey 语言（简称 AHK ）的函数库，用户仅需1行代码即可使用 PaddleOCR 的各种功能。  
   <br>
 # 快速开始  
-对于非 AHK 用户，下载[此版本](https://github.com/telppa/PaddleOCR-AutoHotkey/releases/download/v20220110/PaddleOCR-AutoHotkey_with_interpreter.zip)并运行其中的 `示例.exe` 即可。  
+对于非 AHK 用户，下载 **[此版本](https://github.com/telppa/PaddleOCR-AutoHotkey/releases/download/v20220110/PaddleOCR-AutoHotkey_with_interpreter.zip)** 并运行其中的 `示例.exe` 即可。  
 `示例.exe` 实际就是 AHK 的解释器，它负责解释并执行 `示例.ahk` 中的代码。  
   <br>
 # 语法  
@@ -64,7 +64,7 @@ PaddleOCR AutoHotkey 版。
 * `PaddleOCR("https://www.baidu.com/img/flexible/logo/pc/result.png")`  
   <br>
 # 进阶  
-除上述基本使用外，本库还支持17项额外参数。  
+除上述基本使用外，本库还支持 **17项** 额外参数。  
 以下仅演示部分额外参数的使用，完整参数请查看 `示例.ahk` 文件。  
   
 #### 使用更快速但准确率不高的模型识别本地图片  
@@ -76,6 +76,7 @@ PaddleOCR AutoHotkey 版。
 # 更新日志  
 #### 2022.01.10  
 * Support OCR PDF file directly.  
+* Fix a bug when set "get_all_info" to 1.  
 * Add 4 examples.  
 * Update all examples.  
 * Update ImagePut.ahk to 1.5.1.  
@@ -85,6 +86,7 @@ PaddleOCR AutoHotkey 版。
 * Fix a bug when set "get_all_info" to 1.  
 * Update example 6 and 7.  
 * Update ImagePut.ahk to 1.3.  
+* Update JSON.ahk to cJSON.ahk.  
   
 #### 2021.10.03  
 * Update PaddleOCR.dll to 2.3.  
