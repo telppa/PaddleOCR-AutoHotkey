@@ -1,5 +1,5 @@
 ﻿; Return all information including confidence and position.
-; Because "get_all_info" is set, the return value is an object.
+; Because "get_all_info" is set, so the return value is an object.
 ret := PaddleOCR("test_en.png", {"get_all_info":1})
 for k, v in ret
 {

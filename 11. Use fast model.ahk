@@ -1,6 +1,7 @@
-﻿; Use a faster but less accurate model to OCR local image and return all information including confidence and position.
-; Because "get_all_info" is set, the return value is an object.
-ret := PaddleOCR("test_en.png", {"model":"fast", "get_all_info":1})
+﻿; Use a faster but less accurate model to OCR local image, return all information including confidence and position, generate visualization recognition results.
+; Because "get_all_info" is set, so the return value is an object.
+ret := PaddleOCR("test_en.png", {"model":"fast", "get_all_info":1, "visualize":1})
+Run, ocr_vis.png  ; Show visualization recognition results
 for k, v in ret
 {
   words := v.words
@@ -21,7 +22,7 @@ for k, v in ret
 }
 
 ; After changing any Configs setting, the settings who were not changed will revert to their default values.
-; Because only the "model" setting is changed here, so "get_all_info" reverts to the default value of 0.
+; Because only the "model" setting is changed here, so "get_all_info" and "visualize" reverts to the default value of 0.
 ; So only text information is returned.
 MsgBox, % PaddleOCR("test_en.png", {"model":"server"})
 
