@@ -5,13 +5,14 @@ PaddleOCR AHK 版。
 # Introduction  
 [English](https://www.autohotkey.com/boards/viewtopic.php?f=6&t=94856) | [简体中文](README_ZH.md)  
   <br>
-# Visualization  
+# Related  
 * ### OCR-Terminator  
   ![效果图](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
   <br>
 * ### PaddleOCR-parameter-tuner  
   ![效果图](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
   <br>
+# Visualization  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/korean.jpg)  
