@@ -8,6 +8,19 @@ PaddleOCR AutoHotkey 版。
 对于非 AHK 用户，下载 **[此版本](https://github.com/telppa/PaddleOCR-AutoHotkey/releases/download/v20220110/PaddleOCR-AutoHotkey_with_interpreter.zip)** 并运行其中的 `示例.exe` 即可。  
 `示例.exe` 实际就是 AHK 的解释器，它负责解释并执行 `示例.ahk` 中的代码。  
   <br>
+# 相关项目  
+* ### OCR-Terminator  
+  ![OCR 终结者](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
+  <br>
+* ### PaddleOCR-parameter-tuner  
+  ![PaddleOCR 参数调优器](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
+  <br>
+# 效果  
+  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
+  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
+  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/korean.jpg)  
+  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg)  
+  <br>
 # 语法  
 #### 识别本地图片（支持 bmp, dib, rle, jpg, jpeg, jpe, jfif, gif, tif, tiff, png ）  
 * `PaddleOCR("test_zh.png")`  
