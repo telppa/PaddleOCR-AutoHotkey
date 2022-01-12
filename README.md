@@ -7,16 +7,16 @@ PaddleOCR AHK 版。
   <br>
 # Related  
 * ### OCR-Terminator  
-  ![效果图](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
+  ![OCR-Terminator](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
   <br>
 * ### PaddleOCR-parameter-tuner  
-  ![效果图](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
+  ![PaddleOCR-parameter-tuner](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
   <br>
 # Visualization  
-  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
-  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
-  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/korean.jpg)  
-  ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg)  
+  ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
+  ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
+  ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/korean.jpg)  
+  ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg)  
   <br>
 # Changelog  
 #### 2022.01.10  
