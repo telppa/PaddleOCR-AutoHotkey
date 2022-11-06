@@ -6,7 +6,7 @@ PaddleOCR AHK 版。
 [English](https://www.autohotkey.com/boards/viewtopic.php?f=6&t=94856) | [简体中文](README_ZH.md)  
   <br>
 # Related  
-* ### OCR-Terminator  
+* ### OCR-Terminator (Not available at this time)  
 * ### [PaddleOCR-parameter-tuner](https://github.com/telppa/PaddleOCR-parameter-tuner)  
   <br>
 # Visualization  
