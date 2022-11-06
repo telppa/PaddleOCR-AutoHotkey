@@ -9,11 +9,10 @@ PaddleOCR AutoHotkey 版。
 `示例.exe` 实际就是 AHK 的解释器，它负责解释并执行 `示例.ahk` 中的代码。  
   <br>
 # 相关项目  
-* ### OCR-Terminator  
-  ![OCR 终结者](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
-  <br>
-* ### PaddleOCR-parameter-tuner  
-  ![PaddleOCR 参数调优器](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
+* ### OCR 终结者（暂不提供）  
+  ![](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
+* ### [PaddleOCR 参数调优器](https://github.com/telppa/PaddleOCR-parameter-tuner)  
+  ![](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
   <br>
 # 效果  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
