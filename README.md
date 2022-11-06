@@ -7,10 +7,7 @@ PaddleOCR AHK 版。
   <br>
 # Related  
 * ### OCR-Terminator  
-  ![OCR-Terminator](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
-  <br>
-* ### PaddleOCR-parameter-tuner  
-  ![PaddleOCR-parameter-tuner](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
+* ### [PaddleOCR-parameter-tuner](https://github.com/telppa/PaddleOCR-parameter-tuner)  
   <br>
 # Visualization  
   ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
