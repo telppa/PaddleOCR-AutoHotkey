@@ -8,12 +8,6 @@ PaddleOCR AutoHotkey 版。
 对于非 AHK 用户，下载 **[此版本](https://github.com/telppa/PaddleOCR-AutoHotkey/releases/download/v20220110/PaddleOCR-AutoHotkey_with_interpreter.zip)** 并运行其中的 `示例.exe` 即可。  
 `示例.exe` 实际就是 AHK 的解释器，它负责解释并执行 `示例.ahk` 中的代码。  
   <br>
-# 相关项目  
-* ### OCR 终结者（暂不提供）  
-  ![](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
-* ### [PaddleOCR 参数调优器](https://github.com/telppa/PaddleOCR-parameter-tuner)  
-  ![](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
-  <br>
 # 效果  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
   ![效果图](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
@@ -106,6 +100,12 @@ PaddleOCR AutoHotkey 版。
 * Update ImagePut.ahk to 1.2 beta.  
 * Load configs no longer requires temporary file.  
 * Rename dict file and model directories  
+  <br>
+# 相关项目  
+* ### OCR 终结者 （暂不提供）  
+  ![](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
+* ### [PaddleOCR 参数调优器](https://github.com/telppa/PaddleOCR-parameter-tuner)  
+  ![](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
   <br>
 # 感谢  
 #### PaddleOCR  
