@@ -5,10 +5,6 @@ PaddleOCR AHK 版。
 # Introduction  
 [English](https://www.autohotkey.com/boards/viewtopic.php?f=6&t=94856) | [简体中文](README_ZH.md)  
   <br>
-# Related  
-* ### OCR-Terminator (Not available at this time)  
-* ### [PaddleOCR-parameter-tuner](https://github.com/telppa/PaddleOCR-parameter-tuner)  
-  <br>
 # Visualization  
   ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg)  
   ![Visualization](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.3/doc/imgs_results/french_0.jpg)  
@@ -36,6 +32,12 @@ PaddleOCR AHK 版。
 * Update ImagePut.ahk to 1.2 beta.  
 * Load configs no longer requires temporary file.  
 * Rename dict file and model directories  
+  <br>
+# Related  
+* ### OCR-Terminator (Not available at this time)  
+  ![](https://raw.githubusercontent.com/telppa/OCR-Terminator/main/Img/1.png)  
+* ### [PaddleOCR-parameter-tuner](https://github.com/telppa/PaddleOCR-parameter-tuner)  
+  ![](https://raw.githubusercontent.com/telppa/PaddleOCR-parameter-tuner/main/Img/5.png)  
   <br>
 # Thanks  
 #### PaddleOCR  
