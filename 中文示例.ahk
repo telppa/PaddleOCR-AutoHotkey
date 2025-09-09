@@ -15,11 +15,9 @@
     {
       "model":                        "server"
       "get_all_info":                 0
-      "use_gpu":                      0
-      "gpu_id":                       0
-      "gpu_mem":                      4000
+      "visualize":                    0
       "cpu_math_library_num_threads": 10
-      "use_mkldnn":                   0
+      "use_mkldnn":                   1
       "max_side_len":                 960
       "det_db_thresh":                0.5
       "det_db_box_thresh":            0.5
@@ -27,9 +25,6 @@
       "use_polygon_score":            1
       "use_angle_cls":                0
       "cls_thresh":                   0.9
-      "visualize":                    0
-      "use_tensorrt":                 0
-      "use_fp16":                     0
     }
   
 感谢：
@@ -45,7 +40,14 @@
     https://github.com/iseahound/ImagePut
 */
 
-MsgBox, 如果接下来等待超过1分钟都没有看到 OCR 结果，最大可能就是缺少 vc2015-2017 x64 运行时库。`n`n另一种可能是 CPU 太老。
+MsgBox,
+(
+如果接下来等待超过1分钟都没有看到 OCR 结果，最大可能就是缺少 vc2015-2017 x64 运行时库。
+
+其次可能是 CPU 太老。
+
+最后可能是精简系统导致缺失某些依赖的库文件。
+)
 
 ; 识别本地图片（支持 bmp, dib, rle, jpg, jpeg, jpe, jfif, gif, tif, tiff, png ）
 MsgBox, % PaddleOCR("test_zh.png")

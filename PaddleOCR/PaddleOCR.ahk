@@ -1,13 +1,13 @@
 ﻿/*
 author:    telppa（空）
-version:   2022.01.10
+version:   2025.05.20
 */
 PaddleOCR(Image, Configs:="")
 {
     static hModule, model, get_all_info, LastConfigs, DllPath := A_LineFile "\..\Dll"
     
     ; 校验运行版本
-    if (A_PtrSize!=8)
+    if (A_PtrSize != 8)
     {
         MsgBox, 0x40010, , PaddleOCR must run on x64.
         ExitApp
@@ -26,12 +26,10 @@ PaddleOCR(Image, Configs:="")
         ; 支持的 Configs 选项
         model                        := NonNull_Ret(Configs.model                       , model="" ? "server" : model)
         get_all_info                 := NonNull_Ret(Configs.get_all_info                , 0)
+        visualize                    := NonNull_Ret(Configs.visualize                   , 0)
         
-        use_gpu                      := NonNull_Ret(Configs.use_gpu                     , 0)
-        gpu_id                       := NonNull_Ret(Configs.gpu_id                      , 0)
-        gpu_mem                      := NonNull_Ret(Configs.gpu_mem                     , 4000)
         cpu_math_library_num_threads := NonNull_Ret(Configs.cpu_math_library_num_threads, 10)
-        use_mkldnn                   := NonNull_Ret(Configs.use_mkldnn                  , 0)
+        use_mkldnn                   := NonNull_Ret(Configs.use_mkldnn                  , 1)
         
         max_side_len                 := NonNull_Ret(Configs.max_side_len                , 960)
         det_db_thresh                := NonNull_Ret(Configs.det_db_thresh               , 0.5)
@@ -41,11 +39,6 @@ PaddleOCR(Image, Configs:="")
         
         use_angle_cls                := NonNull_Ret(Configs.use_angle_cls               , 0)
         cls_thresh                   := NonNull_Ret(Configs.cls_thresh                  , 0.9)
-        
-        visualize                    := NonNull_Ret(Configs.visualize                   , 0)
-        
-        use_tensorrt                 := NonNull_Ret(Configs.use_tensorrt                , 0)
-        use_fp16                     := NonNull_Ret(Configs.use_fp16                    , 0)
         
         ; 使用更快或更准的模型
         model          := (model="fast" or model="mobile") ? "mobile" : "server"
@@ -57,13 +50,11 @@ PaddleOCR(Image, Configs:="")
         ; config.txt 模板
         template=
         (LTrim
-        use_gpu %use_gpu%                                             # 是否使用 GPU 。1表示使用，0表示不使用。
-        gpu_id  %gpu_id%                                              # GPU id 。使用 GPU 时有效。
-        gpu_mem  %gpu_mem%                                            # 申请的 GPU 内存。
+        use_gpu 0                                                     # 是否使用 GPU 。1表示使用，0表示不使用。
         cpu_math_library_num_threads  %cpu_math_library_num_threads%  # CPU 预测时的线程数。在机器核数充足的情况下，该值越大，预测速度越快。
         use_mkldnn %use_mkldnn%                                       # 是否使用 mkldnn 库（ CPU 加速用）。1表示使用，0表示不使用。
 
-        max_side_len  %max_side_len%                                  # 输入图像长宽大于 n 时，等比例缩放图像，使得图像最长边为 n 。
+        max_side_len  %max_side_len%                                  # 输入图像长边大于 n 时，等比例缩放图像，使得图像最长边为 n 。
         det_db_thresh  %det_db_thresh%                                # 用于过滤 DB 预测的二值化图像。设置为 0. - 0.3 对结果影响不明显。
         det_db_box_thresh  %det_db_box_thresh%                        # DB 后处理过滤 box 的阈值。如果检测存在漏框情况，可酌情减小。
         det_db_unclip_ratio  %det_db_unclip_ratio%                    # 表示文本框的紧致程度。越小则文本框更靠近文本。
@@ -78,11 +69,9 @@ PaddleOCR(Image, Configs:="")
         char_list_file  %char_list_file%                              # 字典文件的位置。
 
         visualize %visualize%                                         # 是否对结果进行可视化。为1时，会在主代码文件夹下保存文件名为 ocr_vis.png 的可视化预测结果。
-
-        use_tensorrt %use_tensorrt%                                   # 是否使用 tensorrt 。
-        use_fp16 %use_fp16%                                           # 是否使用 fp16 。
         )
-        if (template!=LastConfigs)
+        
+        if (template != LastConfigs)
         {
             LastConfigs := template
             NeedToInit  := 1
@@ -101,7 +90,13 @@ PaddleOCR(Image, Configs:="")
     if (!hModule)
     {
         DllCall("SetDllDirectory", "str", DllPath)
-        hModule := DllCall("LoadLibrary", "str", DllPath "\PaddleOCR.dll")
+        if (!hModule := DllCall("LoadLibrary", "str", DllPath "\PaddleOCR.dll"))
+        {
+            ; 使用工具 ProcessMonitor 查看本进程文件操作值为 NAME NOT FOUND 的结果即可找到缺失的依赖 dll
+            ; 例如远景大神 Windows 10 22H2 19045.5796 22in1镜像 轻度精简版缺失 mf.dll mfplat.dll mfreadwrite.dll mfcore.dll 4个文件
+            MsgBox, 0x40010, , Failed to load PaddleOCR.dll
+            ExitApp
+        }
     }
     
     ; 设置变更需要重新初始化
@@ -134,12 +129,12 @@ PaddleOCR(Image, Configs:="")
         rightChars = ,"score":-1,"range"
         str := StrReplace(str, wrongChars, rightChars)
         ; 修复 str 为空报错的问题
-        return, str="" ? "" : JSON.Load(str)
+        return str="" ? "" : JSON.Load(str)
     }
     
-    return, str
+    return str
 }
 
 #Include %A_LineFile%\..\Lib\ImagePut.ahk
 #Include %A_LineFile%\..\Lib\NonNull.ahk
-#Include %A_LineFile%\..\Lib\JSON.ahk
+#Include %A_LineFile%\..\Lib\cJson.ahk

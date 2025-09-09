@@ -17,11 +17,9 @@ Usage:
     {
       "model":                        "server"
       "get_all_info":                 0
-      "use_gpu":                      0
-      "gpu_id":                       0
-      "gpu_mem":                      4000
+      "visualize":                    0
       "cpu_math_library_num_threads": 10
-      "use_mkldnn":                   0
+      "use_mkldnn":                   1
       "max_side_len":                 960
       "det_db_thresh":                0.5
       "det_db_box_thresh":            0.5
@@ -29,9 +27,6 @@ Usage:
       "use_polygon_score":            1
       "use_angle_cls":                0
       "cls_thresh":                   0.9
-      "visualize":                    0
-      "use_tensorrt":                 0
-      "use_fp16":                     0
     }
   
 How to switch language:
@@ -61,5 +56,7 @@ MsgBox,
 (
 If you wait more than 1 minute without seeing OCR results, the most likely reason is that the vc2015-2017 x64 runtime library is missing.
 
-Another possibility is that your CPU is too old.
+The second possibility is that your CPU is too old.
+
+Lastly, it could be that some dependent DLL files are missing from the lite system.
 )
