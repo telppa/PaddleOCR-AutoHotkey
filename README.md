@@ -1,3 +1,7 @@
+# Attention  
+本项目难以继续更新，推荐使用 [RapidOCR-AutoHotkey](https://github.com/telppa/RapidOCR-AutoHotkey) 替代。  
+后者具有模型文件更小，识别准确率更高，默认参数下速度更快等多项优点。  
+  <br>
 # PaddleOCR-AutoHotkey  
 PaddleOCR AutoHotkey Version.  
 PaddleOCR AHK 版。  
